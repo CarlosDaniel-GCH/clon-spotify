@@ -1,0 +1,27 @@
+---
+import SideMenuItem from "./SideMenuItem.astro"
+---
+<nav class="flex flex-col flex-1 gap-2">
+    <div class="bg-zinc-900 rounded-lg p-2">
+        <ul>
+            <SideMenuItem href="/">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </SideMenuItem>
+
+            <SideMenuItem href="/">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </SideMenuItem>
+        </ul>
+    </div>
+    
+    <div class="bg-zinc-900 rounded-lg p-2 flex-1">
+        <ul>
+            <SideMenuItem href="/">
+                <i class="fa-solid fa-book"></i>
+                Tu Biblioteca
+            </SideMenuItem>
+        </ul>
+    </div>
+</nav>
