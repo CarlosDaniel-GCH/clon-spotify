@@ -1,5 +1,13 @@
 ---
 import AsideMenu from "../components/AsideMenu.astro"
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props{
+	title: string
+}
+
+const { title } = Astro.props
 ---
 
 <!doctype html>
@@ -9,21 +17,18 @@ import AsideMenu from "../components/AsideMenu.astro"
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-		<!-- FONT AWESOME -->
-		<script src="https://kit.fontawesome.com/8bd2ed292e.js" crossorigin="anonymous"></script>
+		<title>{title}</title>
+		<ViewTransitions fallback="none"/>
 	</head>
 	<body>
 		<div id="app" class="relative h-screen p-2 gap-2">
 			<aside class="[grid-area: aside] flex-col flex overflow-y-auto">
-				<AsideMenu>
+				<AsideMenu />
 			</aside>
 
-			<main class="[grid-area: main] rounded-lg bg-zinc-900 overflow-y-auto">MAIN</main>
-
-			<footer class="[grid-area: player] min-h-[100px]">FOOTER</footer>
-
-			<slot />
+			<main class="[grid-area: main] rounded-lg bg-zinc-900 overflow-y-auto w-full"><slot /></main>
+		
+			<footer class="[grid-area: player] min-h-[60px]">FOOTER</footer>
 		</div>
 	</body>
 </html>
